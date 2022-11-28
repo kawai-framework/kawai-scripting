@@ -23,15 +23,21 @@ export const SiteModel = [{
 // Aviliable code: ['Block-l', 'HTML']
 export const SiteBlocks = [{
     "1": [{
-        "blockl": [{
-            "config": ["la"],
-            "content": ["Hello world"]
+        "col": [{
+            "name": "block-l",
+            "config": ["text-block", "text-block"],
+            "content": ["Hello world", "Welcome to roundstep"]
         }]
     }],
     "2": [{
-        "blockl": [{
-            "config": ["la"],
-            "content": ["Welcome to kawai builder"]
+        "col": [{
+            "name": "block-l",
+            "config": ["text-block", "text-block"],
+            "content": ["Pricing", "Free"]
+        }, {
+            "name": "block-l",
+            "config": ["text-block", "text-block"],
+            "content": ["Why kawai?", "It is the best"]
         }]
     }]
 }]

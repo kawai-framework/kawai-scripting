@@ -26,15 +26,36 @@ var addElementTextBlock = `
 `
 
 function kawaiConstructorBlocks() {
-  var createBlocks = `<div class="collector-lo">
-  </div>`
+  var addBlock = ``;
 
-  var addBlock = `blocks`
-
-  for (let step = 0; step<Object.keys(SiteBlocks[0]).length-1; step++) {
-    var blockName = blocks[Object.keys(SiteBlocks[0])[step]][step];
+  for (let step = 0; step<Object.keys(SiteBlocks[0]).length; step++) {
+    var blockName = blocks[Object.keys(SiteBlocks[0])[step]][0].col;
+    var addBlockInside = ``;
     
+    for (let shag = 0; shag<blockName.length; shag++) {
+      var blockInfo = blockName[step];
+      var totalElements = blockInfo.config.length;
+      var insideDoubleFlorAddElement = ``
+
+      for (let step2 = 0; step2<totalElements; step2++) {
+        insideDoubleFlorAddElement = insideDoubleFlorAddElement +`
+        <div class="${blockInfo.config[step]}">
+          ${blockInfo.content[step]}
+        </div>
+        `
+      }
+
+      var addBlockInside = addBlockInside + `
+      <div class="${blockInfo.name}">
+        ${insideDoubleFlorAddElement}
+      </div>
+      `
+    }
+
+    addBlock = addBlock + `<div class="collector-lo">${addBlockInside}</div>`;
   }
+
+  return addBlock;
 }
 
 function kawaiConstructorSidebar(data) {
@@ -74,8 +95,8 @@ function kawaiConstructorBlocko() {
 
 var createSidebar = kawaiConstructorSidebar();
 var createBlocko = kawaiConstructorBlocko();
-
 var kawaiCompile = kawaiCompiler();
+
 function kawaiCompiler() {
   var compileKawaiElements = createSidebar + createBlocko;
 
